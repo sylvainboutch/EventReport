@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="EVENT_REPORT" EntityType="Model.Store.EVENT_REPORT" store:Type="Tables" Schema="SBOUCHAR" />
+          <EntitySet Name="LCL_V_EVENTREPORT" EntityType="Model.Store.LCL_V_EVENTREPORT" store:Type="Views" store:Schema="VDA" store:Name="LCL_V_EVENTREPORT">
+            <DefiningQuery>SELECT 
+      "LCL_V_EVENTREPORT"."PATIENTEVENTPK" AS "PATIENTEVENTPK", 
+      "LCL_V_EVENTREPORT"."STUDYNUMBER" AS "STUDYNUMBER", 
+      "LCL_V_EVENTREPORT"."PATIENTSTUDYID" AS "PATIENTSTUDYID", 
+      "LCL_V_EVENTREPORT"."PATIENTID" AS "PATIENTID", 
+      "LCL_V_EVENTREPORT"."VISITNAME" AS "VISITNAME", 
+      "LCL_V_EVENTREPORT"."EVENTNAME" AS "EVENTNAME", 
+      "LCL_V_EVENTREPORT"."EVENTNOTE" AS "EVENTNOTE", 
+      "LCL_V_EVENTREPORT"."EVENTSTATUS" AS "EVENTSTATUS", 
+      "LCL_V_EVENTREPORT"."LAST_MODIFIED_DATE" AS "LAST_MODIFIED_DATE", 
+      "LCL_V_EVENTREPORT"."CREATED_ON" AS "CREATED_ON", 
+      "LCL_V_EVENTREPORT"."EVENTSTAT_DATE" AS "EVENTSTAT_DATE"
+      FROM "VDA"."LCL_V_EVENTREPORT" "LCL_V_EVENTREPORT"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="EVENT_REPORT">
+          <Key>
+            <PropertyRef Name="PATIENTEVENTPK" />
+          </Key>
+          <Property Name="PATIENTEVENTPK" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="STUDYNUMBER" Type="varchar2" MaxLength="100" />
+          <Property Name="PATIENTSTUDYID" Type="varchar2" MaxLength="20" />
+          <Property Name="PATIENTID" Type="varchar2" MaxLength="20" />
+          <Property Name="VISITNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="EVENTNAME" Type="varchar2" />
+          <Property Name="EVENTNOTE" Type="varchar2" />
+          <Property Name="EVENTSTATUS" Type="varchar2" MaxLength="202" />
+          <Property Name="LAST_MODIFIED_DATE" Type="date" />
+          <Property Name="CREATED_ON" Type="date" />
+          <Property Name="EVENTSTAT_DATE" Type="date" />
+          <Property Name="COMMENTS" Type="varchar2" MaxLength="2000" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'VDA.LCL_V_EVENTREPORT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="LCL_V_EVENTREPORT">
+          <Key>
+            <PropertyRef Name="PATIENTEVENTPK" />
+          </Key>
+          <Property Name="PATIENTEVENTPK" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="STUDYNUMBER" Type="varchar2" MaxLength="100" />
+          <Property Name="PATIENTSTUDYID" Type="varchar2" MaxLength="20" />
+          <Property Name="PATIENTID" Type="varchar2" MaxLength="20" />
+          <Property Name="VISITNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="EVENTNAME" Type="varchar2" />
+          <Property Name="EVENTNOTE" Type="varchar2" />
+          <Property Name="EVENTSTATUS" Type="varchar2" MaxLength="200" />
+          <Property Name="LAST_MODIFIED_DATE" Type="date" />
+          <Property Name="CREATED_ON" Type="date" />
+          <Property Name="EVENTSTAT_DATE" Type="date" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EventModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EVENT_REPORT" EntityType="Model.EVENT_REPORT" />
+          <EntitySet Name="LCL_V_EVENTREPORT" EntityType="Model.LCL_V_EVENTREPORT" />
+        </EntityContainer>
+        <EntityType Name="EVENT_REPORT">
+          <Key>
+            <PropertyRef Name="PATIENTEVENTPK" />
+          </Key>
+          <Property Name="PATIENTEVENTPK" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="STUDYNUMBER" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="PATIENTSTUDYID" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PATIENTID" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="VISITNAME" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EVENTNAME" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <Property Name="EVENTNOTE" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <Property Name="EVENTSTATUS" Type="String" MaxLength="202" Unicode="false" FixedLength="false" />
+          <Property Name="LAST_MODIFIED_DATE" Type="DateTime" />
+          <Property Name="CREATED_ON" Type="DateTime" />
+          <Property Name="EVENTSTAT_DATE" Type="DateTime" />
+          <Property Name="COMMENTS" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="LCL_V_EVENTREPORT">
+          <Key>
+            <PropertyRef Name="PATIENTEVENTPK" />
+          </Key>
+          <Property Name="PATIENTEVENTPK" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="STUDYNUMBER" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="PATIENTSTUDYID" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PATIENTID" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="VISITNAME" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EVENTNAME" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <Property Name="EVENTNOTE" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <Property Name="EVENTSTATUS" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="LAST_MODIFIED_DATE" Type="DateTime" />
+          <Property Name="CREATED_ON" Type="DateTime" />
+          <Property Name="EVENTSTAT_DATE" Type="DateTime" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="EventModel">
+          <EntitySetMapping Name="EVENT_REPORT">
+            <EntityTypeMapping TypeName="Model.EVENT_REPORT">
+              <MappingFragment StoreEntitySet="EVENT_REPORT">
+                <ScalarProperty Name="PATIENTEVENTPK" ColumnName="PATIENTEVENTPK" />
+                <ScalarProperty Name="STUDYNUMBER" ColumnName="STUDYNUMBER" />
+                <ScalarProperty Name="PATIENTSTUDYID" ColumnName="PATIENTSTUDYID" />
+                <ScalarProperty Name="PATIENTID" ColumnName="PATIENTID" />
+                <ScalarProperty Name="VISITNAME" ColumnName="VISITNAME" />
+                <ScalarProperty Name="EVENTNAME" ColumnName="EVENTNAME" />
+                <ScalarProperty Name="EVENTNOTE" ColumnName="EVENTNOTE" />
+                <ScalarProperty Name="EVENTSTATUS" ColumnName="EVENTSTATUS" />
+                <ScalarProperty Name="LAST_MODIFIED_DATE" ColumnName="LAST_MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+                <ScalarProperty Name="EVENTSTAT_DATE" ColumnName="EVENTSTAT_DATE" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LCL_V_EVENTREPORT">
+            <EntityTypeMapping TypeName="Model.LCL_V_EVENTREPORT">
+              <MappingFragment StoreEntitySet="LCL_V_EVENTREPORT">
+                <ScalarProperty Name="PATIENTEVENTPK" ColumnName="PATIENTEVENTPK" />
+                <ScalarProperty Name="STUDYNUMBER" ColumnName="STUDYNUMBER" />
+                <ScalarProperty Name="PATIENTSTUDYID" ColumnName="PATIENTSTUDYID" />
+                <ScalarProperty Name="PATIENTID" ColumnName="PATIENTID" />
+                <ScalarProperty Name="VISITNAME" ColumnName="VISITNAME" />
+                <ScalarProperty Name="EVENTNAME" ColumnName="EVENTNAME" />
+                <ScalarProperty Name="EVENTNOTE" ColumnName="EVENTNOTE" />
+                <ScalarProperty Name="EVENTSTATUS" ColumnName="EVENTSTATUS" />
+                <ScalarProperty Name="LAST_MODIFIED_DATE" ColumnName="LAST_MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+                <ScalarProperty Name="EVENTSTAT_DATE" ColumnName="EVENTSTAT_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="EventModel">
+        <EntityTypeShape EntityType="Model.EVENT_REPORT" Width="1.5" PointX="0.75" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LCL_V_EVENTREPORT" Width="1.5" PointX="2.75" PointY="0.75" Height="3.1340950520833326" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
